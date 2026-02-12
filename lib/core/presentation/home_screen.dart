@@ -31,7 +31,8 @@ class HomeScreen extends StatelessWidget {
 
           children: [
             CustomButton(
-              onPressed: () {},
+              onPressed: () =>
+                  Navigator.of(context).pushNamed(AppRoutes.goldScreen),
               textButton: AppStrings.gold,
               textButtonColor: AppColors.primaryColor,
               backColor: AppColors.goldColor,
