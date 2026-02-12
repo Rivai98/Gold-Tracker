@@ -14,9 +14,13 @@ class GoldScreen extends StatelessWidget {
       backgroundColor: AppColors.primaryColor,
       appBar: AppBar(
         backgroundColor: AppColors.subColor,
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).pop(),
+          icon: Icon(Icons.chevron_left, color: AppColors.goldColor, size: 36),
+        ),
         centerTitle: true,
         title: Text(
-          AppStrings.appTitle,
+          AppStrings.gold,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
             fontWeight: FontWeight.bold,
             color: AppColors.goldColor,
@@ -44,9 +48,9 @@ class GoldScreen extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(AppImagesP.goldImage),
+                Image.asset(AppImages.goldImage),
                 Text(
-                  "${goldModel.price} USD",
+                  '${goldModel.price.toStringAsFixed(2)} USD',
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                     fontWeight: FontWeight.bold,
                     color: AppColors.goldColor,

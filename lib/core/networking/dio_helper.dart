@@ -9,8 +9,9 @@ class DioHelper {
       BaseOptions(
         baseUrl: ApiConstants.baseUrl,
         receiveDataWhenStatusError: true,
-        connectTimeout: const Duration(seconds: 50),
-        receiveTimeout: const Duration(seconds: 50),
+        connectTimeout: const Duration(seconds: 20),
+        receiveTimeout: const Duration(seconds: 20),
+        headers: {"Accept": "application/json", "User-Agent": "Mozilla/5.0"},
       ),
     );
   }

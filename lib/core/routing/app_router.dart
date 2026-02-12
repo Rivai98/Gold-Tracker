@@ -3,8 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldy/core/presentation/home_screen.dart';
 import 'package:goldy/core/routing/app_routes.dart';
 import 'package:goldy/features/data/repo/gold_repo.dart';
+import 'package:goldy/features/data/repo/silver_repo.dart';
 import 'package:goldy/features/presentation/screens/gold_screen.dart';
+import 'package:goldy/features/presentation/screens/silver_screen.dart';
 import 'package:goldy/features/presentation/view_model/gold_cubit/gold_cubit.dart';
+import 'package:goldy/features/presentation/view_model/silver_cubit/silver_cubit.dart';
 
 class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -22,6 +25,17 @@ class AppRouter {
               return GoldCubit(GoldRepo())..getGoldPrice();
             },
             child: GoldScreen(),
+          ),
+        );
+
+      case AppRoutes.silverScreen:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => BlocProvider(
+            create: (context) {
+              return SilverCubit(SilverRepo())..getSilverData();
+            },
+            child: SilverScreen(),
           ),
         );
       default:
